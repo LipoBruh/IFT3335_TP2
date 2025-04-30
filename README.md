@@ -76,6 +76,11 @@ That's it !
 
 
 ## Part 1 - Classification 
+Voir `partie1_training.py` pour l'implémentation et `output.txt` pour les résultats.
+
+
+### Notes Personnelles : 
+
 
 #### Notes sur Bag of Words
 - [1 minute introduction](https://www.youtube.com/watch?v=OGK9SHt8SWg)
@@ -100,6 +105,8 @@ Considérant ces limitations, un texte plus long permet de mitiger les faiblesse
 #### Notes sur TF-IDF
 - [8 minutes intro](https://www.youtube.com/watch?v=zLMEnNbdh4Q)
 - [5 minutes intro](https://www.youtube.com/watch?v=x1u5TotQ0G0)
+- [G4G : BOW vs TF-IDF](https://www.geeksforgeeks.org/bag-of-words-vs-tf-idf/)
+- [F1 Score](https://en.wikipedia.org/wiki/Precision_and_recall)
 
 TF: Bag-like. Ne préserve pas l'ordre des mots. Se sert aussi de la fréquence des mots de chaque entrée / document. 
 
@@ -110,16 +117,47 @@ TF-IDF : Multiplication naive de chaque TD et IDF d'un document pour produire le
 
 ### Pre traitement
 - Téléchargement du dataset .csv sur [Kaggle](https://www.kaggle.com/datasets/uciml/sms-spam-collection-dataset?phase=FinishSSORegistration&returnUrl=/datasets/uciml/sms-spam-collection-dataset/versions/1)
-- Extraire les mots via `parser`, retirer les caractères spéciaux et convertir en minuscule via `
--
 
 #### Vectorizers
 - [10 mins tutorial](https://www.youtube.com/watch?v=W2YJ_IOSWd0)
 
 
 
+
 ### Q1.1 
 > Quelle méthode (BoW ou TF-IDF) donne les meilleurs résultats ? Pourquoi pensez-vous que c’est le cas ?
 
+This is the first data produced by our training. If it happens to be ovewritten by an additionnal training, we can also refer to `output.txt` to inspect the mean accuracy and the mean f1 scores. 
+
+| Model             | Accuracy BOW | Accuracy TF-IDF | F1 BOW   | F1 TF-IDF |
+|-------------------|--------------|-----------------|----------|-----------|
+| Linear Regression | 0.981515     | 0.971644        | 0.927264 | 0.882551  |
+| Random Forest     | 0.978104     | 0.97631         | 0.911395 | 0.903437  |
+| MLP               | 0.983848     | 0.985462        | 0.936336 | 0.943601  |
+
+La précision est assez bonne parmi tous les modèles, qui marquent un message comme 'spam' au moins 97% du temps. 
+
+On peut utiliser le F1 score pour comparer les modèles, qui considèrent aussi les . Ici, le MLP TF-IDF performe le mieux, ce qui semble prévisible avec l'idée qu'il s'agit d'un modèle plus puissant avec un filtre plus riche. 
+
+Aussi, en étudiant notre banque de données, on remarque que le vocabulaire est souvent très distinct entre un message SMS "ham" et "spam", car les "ham" utilisent des abréviations et des termes populaires, versus les "spam" mobilisent davantage de mots *normaux* ou de mots clés *corporate-esque*. Cela peut expliquer la bonne précision des modèles en général.
+
+> ham : "No..jst change tat only"
+> spam : "You are guaranteed the latest Nokia Phone, a 40GB iPod MP3 player or a �500 prize! Txt word: COLLECT to No: 83355!"
+
+
+Il est intéressant de s'attarder sur la régression linéaire, qui semble préférer le prétraitement *Bag Of Words*. Dans l'article *geeksforgeeks.com* joint aux notes, il est discuté que la sensibilité du BOW est dictée par la largeur du document. TF-IDF normalise, ce qui est idéal pour les longs documents. Possiblement que pour les courts documents, comme pour des messages issus de la banque de messages SMS que nous avons dans `spam.csv`, BOW performe mieux tout simplement parce que nos données sont plus courtes comparativement à TF-IDF. La précision est bonne, ce qui signifie que lorsqu'on détecte quelque chose, c'est souvent bel et bien un spam. Le F1 score est moins bon, ce qui veut dire qu'on oublie davantage de vrai spams avec la régression linéaire. 
+
+
+
 ### Q1.2
 > Que se passe-t-il pour les métriques si vous diminuez `max_features` ? (Montrez un graphique)
+
+Première conséquence : L'entraînement des modèles est fortement accéléré ! 
+
+| Model             | Accuracy BOW | Accuracy TF-IDF | F1 BOW   | F1 TF-IDF |
+|-------------------|--------------|-----------------|----------|-----------|
+| Linear Regression | 0.980079     | 0.975592        | 0.921957 | 0.900749  |
+| Random Forest     | 0.980078     | 0.978822        | 0.921126 | 0.91525   |
+| MLP               | 0.981874     | 0.980438        | 0.930265 | 0.924931  |
+
+Ensuite, les métriques sont assez similaires avec un `max_features` limité à 500 mots au lieu de 5000. Le modèle MLP avec TF-IDF semble celui le plus pénalisé, car il perd un peu de la richesse associée au TF-IDF qui valorise certains mots plus rares.

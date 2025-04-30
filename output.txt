@@ -1,0 +1,47 @@
+
+
+
+F1 & ACCURACY SCOFRES
+
+
+
+Linear Regression Models : 
+
+BOW : 
+
+ mean_fit_time  std_fit_time  mean_score_time  std_score_time  param_vect__lowercase  param_vect__max_features param_vect__strip_accents                                                                                  params  split0_test_accuracy  split1_test_accuracy  split2_test_accuracy  split3_test_accuracy  split4_test_accuracy  mean_test_accuracy  std_test_accuracy  rank_test_accuracy  split0_test_f1  split1_test_f1  split2_test_f1  split3_test_f1  split4_test_f1  mean_test_f1  std_test_f1  rank_test_f1
+      0.125549      0.018953         0.032059        0.009574                   True                      5000                   unicode {'vect__lowercase': True, 'vect__max_features': 5000, 'vect__strip_accents': 'unicode'}               0.98296              0.981166              0.979354              0.982047              0.982047            0.981515            0.00122                   1        0.933798        0.926316        0.917563        0.928571         0.93007      0.927264     0.005427             1
+
+TF-IDF : 
+
+ mean_fit_time  std_fit_time  mean_score_time  std_score_time  param_tfidf__lowercase  param_tfidf__max_features param_tfidf__strip_accents                                                                                     params  split0_test_accuracy  split1_test_accuracy  split2_test_accuracy  split3_test_accuracy  split4_test_accuracy  mean_test_accuracy  std_test_accuracy  rank_test_accuracy  split0_test_f1  split1_test_f1  split2_test_f1  split3_test_f1  split4_test_f1  mean_test_f1  std_test_f1  rank_test_f1
+      0.157984      0.016556         0.037773        0.006732                    True                       5000                    unicode {'tfidf__lowercase': True, 'tfidf__max_features': 5000, 'tfidf__strip_accents': 'unicode'}              0.969507              0.973991               0.97307              0.968582               0.97307            0.971644           0.002169                   1        0.874074        0.892989         0.88806        0.867925        0.889706      0.882551      0.00976             1
+
+
+
+Random Forest Regression Models : 
+
+BOW : 
+
+ mean_fit_time  std_fit_time  mean_score_time  std_score_time  param_vect__lowercase  param_vect__max_features param_vect__strip_accents                                                                                  params  split0_test_accuracy  split1_test_accuracy  split2_test_accuracy  split3_test_accuracy  split4_test_accuracy  mean_test_accuracy  std_test_accuracy  rank_test_accuracy  split0_test_f1  split1_test_f1  split2_test_f1  split3_test_f1  split4_test_f1  mean_test_f1  std_test_f1  rank_test_f1
+      1.738013      0.191487         0.089318        0.016802                   True                      5000                   unicode {'vect__lowercase': True, 'vect__max_features': 5000, 'vect__strip_accents': 'unicode'}              0.981166              0.981166              0.977558              0.972172              0.978456            0.978104           0.003297                   1        0.925267        0.925267        0.908425        0.885609        0.912409      0.911395     0.014558             1
+
+TF-IDF : 
+
+ mean_fit_time  std_fit_time  mean_score_time  std_score_time  param_tfidf__lowercase  param_tfidf__max_features param_tfidf__strip_accents                                                                                     params  split0_test_accuracy  split1_test_accuracy  split2_test_accuracy  split3_test_accuracy  split4_test_accuracy  mean_test_accuracy  std_test_accuracy  rank_test_accuracy  split0_test_f1  split1_test_f1  split2_test_f1  split3_test_f1  split4_test_f1  mean_test_f1  std_test_f1  rank_test_f1
+      2.119302       0.13095         0.091738        0.026831                    True                       5000                    unicode {'tfidf__lowercase': True, 'tfidf__max_features': 5000, 'tfidf__strip_accents': 'unicode'}              0.976682              0.977578              0.973968              0.973968              0.979354             0.97631           0.002097                   1        0.905109        0.909747        0.892193        0.893773        0.916364      0.903437     0.009269             1
+
+
+
+MLP Models : 
+
+BOW : 
+
+ mean_fit_time  std_fit_time  mean_score_time  std_score_time  param_vect__lowercase  param_vect__max_features param_vect__strip_accents                                                                                  params  split0_test_accuracy  split1_test_accuracy  split2_test_accuracy  split3_test_accuracy  split4_test_accuracy  mean_test_accuracy  std_test_accuracy  rank_test_accuracy  split0_test_f1  split1_test_f1  split2_test_f1  split3_test_f1  split4_test_f1  mean_test_f1  std_test_f1  rank_test_f1
+     43.496853       4.93333         0.061567        0.019581                   True                      5000                   unicode {'vect__lowercase': True, 'vect__max_features': 5000, 'vect__strip_accents': 'unicode'}               0.98565               0.98296              0.982047              0.985637              0.982944            0.983848           0.001503                   1        0.943662        0.932384        0.928571        0.943262        0.933798      0.936336     0.006066             1
+
+TF-IDF : 
+
+ mean_fit_time  std_fit_time  mean_score_time  std_score_time  param_tfidf__lowercase  param_tfidf__max_features param_tfidf__strip_accents                                                                                     params  split0_test_accuracy  split1_test_accuracy  split2_test_accuracy  split3_test_accuracy  split4_test_accuracy  mean_test_accuracy  std_test_accuracy  rank_test_accuracy  split0_test_f1  split1_test_f1  split2_test_f1  split3_test_f1  split4_test_f1  mean_test_f1  std_test_f1  rank_test_f1
+     53.919041      2.253361         0.050081        0.012768                    True                       5000                    unicode {'tfidf__lowercase': True, 'tfidf__max_features': 5000, 'tfidf__strip_accents': 'unicode'}              0.990135               0.98565              0.983842              0.985637              0.982047            0.985462            0.00269                   1        0.962712        0.944828         0.93617        0.943262        0.931034      0.943601      0.01077             1
+
