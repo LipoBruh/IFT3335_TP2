@@ -13,10 +13,10 @@ from sklearn.feature_extraction.text import CountVectorizer
 #Metrics
 from sklearn.metrics import make_scorer, accuracy_score, f1_score
 #Global variables
-PATH = "./spam.csv"
-FILE = "./output_1_1.txt"
+PATH = "../spam.csv"
+FILE = "./output_1_2.txt"
 #Helper fx
-from parser1 import parser, cleanup
+from parser import parser, cleanup
 
 
 #
@@ -71,12 +71,12 @@ y = df["v1"]
 
 ###Vectorizer parameters
 param_grid1 = {
-    'vect__max_features': [5000],      
+    'vect__max_features': [500],      
     'vect__lowercase': [True],     
     'vect__strip_accents': ["unicode"]
 }
 param_grid2 = {
-    'tfidf__max_features': [5000],      
+    'tfidf__max_features': [500],      
     'tfidf__lowercase': [True],     
     'tfidf__strip_accents': ["unicode"]
 }

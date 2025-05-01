@@ -1,0 +1,26 @@
+
+
+
+F1 & ACCURACY SCOFRES
+
+
+
+Linear Regression Models : 
+
+ mean_fit_time  std_fit_time  mean_score_time  std_score_time params  split0_test_accuracy  split1_test_accuracy  split2_test_accuracy  split3_test_accuracy  split4_test_accuracy  mean_test_accuracy  std_test_accuracy  rank_test_accuracy  split0_test_f1  split1_test_f1  split2_test_f1  split3_test_f1  split4_test_f1  mean_test_f1  std_test_f1  rank_test_f1
+      0.028091       0.00259         0.005409        0.000785     {}               0.98296              0.983857              0.982047              0.978456              0.978456            0.981155           0.002277                   1        0.933798         0.93662        0.929577        0.914286        0.914286      0.925713     0.009596             1
+
+
+
+Random Forest Regression Models : 
+
+ mean_fit_time  std_fit_time  mean_score_time  std_score_time params  split0_test_accuracy  split1_test_accuracy  split2_test_accuracy  split3_test_accuracy  split4_test_accuracy  mean_test_accuracy  std_test_accuracy  rank_test_accuracy  split0_test_f1  split1_test_f1  split2_test_f1  split3_test_f1  split4_test_f1  mean_test_f1  std_test_f1  rank_test_f1
+      7.129255      0.275635          0.01571        0.003182     {}              0.975785              0.973094               0.97307              0.966786              0.967684            0.971284           0.003462                   1        0.901099        0.888889         0.88806        0.858238        0.862595      0.879776     0.016525             1
+
+
+
+MLP Models : 
+
+ mean_fit_time  std_fit_time  mean_score_time  std_score_time params  split0_test_accuracy  split1_test_accuracy  split2_test_accuracy  split3_test_accuracy  split4_test_accuracy  mean_test_accuracy  std_test_accuracy  rank_test_accuracy  split0_test_f1  split1_test_f1  split2_test_f1  split3_test_f1  split4_test_f1  mean_test_f1  std_test_f1  rank_test_f1
+      1.711863      0.136045         0.004884        0.000461     {}              0.990135              0.991928               0.98474              0.990126              0.989228            0.989231           0.002411                   1        0.962963        0.969697         0.94198        0.963455        0.959184      0.959456     0.009367             1
+
