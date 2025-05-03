@@ -7,9 +7,6 @@ from sklearn.neural_network import MLPClassifier
 #Preprocessing
 from sklearn.model_selection import GridSearchCV
 from sklearn.pipeline import Pipeline
-#vectorizers
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.feature_extraction.text import CountVectorizer
 #Metrics
 from sklearn.metrics import make_scorer, accuracy_score, f1_score
 #Librarie pre entrainee
@@ -155,14 +152,20 @@ append_to_file("F1 & ACCURACY SCOFRES\n")
 #1
 append_to_file("\n\nLinear Regression Models : \n")
 append_frame_to_file(pd.DataFrame(model_LR1.cv_results_))
+df = pd.DataFrame(model_LR1.cv_results_)
+df.to_csv("../output/2_1_LR_emb.csv", index=False)
 
 
 #2
 append_to_file("\n\nRandom Forest Regression Models : \n")
 append_frame_to_file(pd.DataFrame(model_RF1.cv_results_))
+df = pd.DataFrame(model_RF1.cv_results_)
+df.to_csv("../output/2_1_RF_emb.csv", index=False)
 
 #3
 append_to_file("\n\nMLP Models : \n")
 append_frame_to_file(pd.DataFrame(model_MLP1.cv_results_))
+df = pd.DataFrame(model_MLP1.cv_results_)
+df.to_csv("../output/2_1_MLP_emb.csv", index=False)
 
 print('...DONE...')

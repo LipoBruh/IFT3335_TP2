@@ -200,24 +200,34 @@ append_to_file("F1 & ACCURACY SCOFRES\n")
 append_to_file("\n\nLinear Regression Models : \n")
 append_to_file("BOW : \n")
 append_frame_to_file(pd.DataFrame(model_LR1.cv_results_))
+df = pd.DataFrame(model_LR1.cv_results_)
+df.to_csv("../output/1_1_LR_BOW.csv", index=False)
 append_to_file("TF-IDF : \n")
 append_frame_to_file(pd.DataFrame(model_LR2.cv_results_))
+df = pd.DataFrame(model_LR2.cv_results_)
+df.to_csv("../output/1_1_LR_IDF.csv", index=False)
 
 #2
 
 append_to_file("\n\nRandom Forest Regression Models : \n")
 append_to_file("BOW : \n")
 append_frame_to_file(pd.DataFrame(model_RF1.cv_results_))
+df = pd.DataFrame(model_RF1.cv_results_)
+df.to_csv("../output/1_1_RF_BOW.csv", index=False)
 append_to_file("TF-IDF : \n")
 append_frame_to_file(pd.DataFrame(model_RF2.cv_results_))
-
+df = pd.DataFrame(model_RF2.cv_results_)
+df.to_csv("../output/1_1_RF_IDF.csv", index=False)
 
 #3
 
 append_to_file("\n\nMLP Models : \n")
 append_to_file("BOW : \n")
 append_frame_to_file(pd.DataFrame(model_MLP1.cv_results_))
+df = pd.DataFrame(model_MLP1.cv_results_)
+df.to_csv("../output/1_1_MLP_BOW.csv", index=False)
 append_to_file("TF-IDF : \n")
 append_frame_to_file(pd.DataFrame(model_MLP2.cv_results_))
-
+df = pd.DataFrame(model_MLP2.cv_results_)
+df.to_csv("../output/1_1_MLP_IDF.csv", index=False)
 print('...DONE...')

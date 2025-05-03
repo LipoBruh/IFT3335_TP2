@@ -140,5 +140,7 @@ clear_file()
 append_to_file("\n\n")
 append_to_file("F1 & ACCURACY SCOFRES\n")
 append_frame_to_file(pd.DataFrame(grid.cv_results_))
+df = pd.DataFrame(grid.cv_results_)
+df.to_csv("../output/3_1_superlearner.csv", index=False)
 #
 print('...DONE...')
