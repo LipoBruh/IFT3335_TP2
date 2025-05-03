@@ -140,7 +140,19 @@ clear_file()
 append_to_file("\n\n")
 append_to_file("F1 & ACCURACY SCOFRES\n")
 append_frame_to_file(pd.DataFrame(grid.cv_results_))
+append_to_file("\n\n")
+append_to_file("Coefficients : \n")
+
 df = pd.DataFrame(grid.cv_results_)
 df.to_csv("../output/3_1_superlearner.csv", index=False)
 #
+
+#3.2
+best_pipeline = grid.best_estimator_
+stacking_model = best_pipeline.named_steps['stack']
+meta_model = stacking_model.final_estimator_
+meta_model_weights = meta_model.coef_
+#
+append_array_to_file(meta_model_weights)
+
 print('...DONE...')

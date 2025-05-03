@@ -161,3 +161,26 @@ Première conséquence : L'entraînement des modèles est fortement accéléré 
 | MLP               | 0.981874     | 0.980438        | 0.930265 | 0.924931  |
 
 Ensuite, les métriques sont assez similaires avec un `max_features` limité à 500 mots au lieu de 5000. Le modèle MLP avec TF-IDF semble celui le plus pénalisé, car il perd un peu de la richesse associée au TF-IDF qui valorise certains mots plus rares.
+
+
+
+
+
+### Q3.1
+> Commenter les graphiques obtenus
+
+Commentons brièvement sur la précision moyenne du superlearner (0.987975) et son score F1 moyen (0.954054) qui dépasse le meilleur modèle MLP utilisant TF-IDF seul (Accuracy 0.980438, F1 0.924931), ce qui implique davantage de détections et davantage de détections correctes. 
+
+Le résultat est un peu prévisible, mais on peut s'interroger au pourquoi est-ce que la précision augmente plutôt que de se comporter comme une moyenne, impliquant qu'ils ont un comportement complémentaire. Chaque modèle doit être sensible à un aspect différent des données. On sait que TF-IDF favorise l'extraction des sujets forts d'une phrase et l'identification des mots clés. 
+
+On sait déjà que le linear regressor va simplement se fier à une décision basée sur la somme des poids en fonction de leurs inputs. Le SVM entraine son modèle en favorisant une séparation spatiale des données d'entrainement. Le MLP optimise sa descente du gradient.
+
+Pour que leur contribution soit complémentaire et non nuisible (ex: LR nuit au modèle et affecte ses métriques à la baisse), la pondération est utilisée lors de l'entrainement pour donner un plus petit poids aux activations / détections du LR, comme on peut le voir à la Q3.2.
+
+### Q3.2
+>Quels sont les poids que votre méta-modèle a attribués à chaque modèle de base ?
+Voici les poids associés à chaque modèle : 
+LR / SVM / MLP
+[[2.05060466 4.78251414 6.29027211]]
+
+On remarque l'importance accrue du MLP, ce qui est prévisible considérant sa bonne performance à la Q3.

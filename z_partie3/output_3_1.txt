@@ -4,5 +4,12 @@
 F1 & ACCURACY SCOFRES
 
  mean_fit_time  std_fit_time  mean_score_time  std_score_time  param_tfidf__lowercase  param_tfidf__max_features param_tfidf__strip_accents                                                                                     params  split0_test_accuracy  split1_test_accuracy  split2_test_accuracy  split3_test_accuracy  split4_test_accuracy  mean_test_accuracy  std_test_accuracy  rank_test_accuracy  split0_test_f1  split1_test_f1  split2_test_f1  split3_test_f1  split4_test_f1  mean_test_f1  std_test_f1  rank_test_f1
-     27.230393      0.640425         0.202184         0.00299                    True                       5000                    unicode {'tfidf__lowercase': True, 'tfidf__max_features': 5000, 'tfidf__strip_accents': 'unicode'}              0.989238              0.991031              0.986535              0.987433              0.985637            0.987975           0.001937                   1        0.959732        0.966216        0.947368        0.951389        0.945946       0.95413     0.007716             1
+     27.193335      0.746035         0.203595         0.00597                    True                       5000                    unicode {'tfidf__lowercase': True, 'tfidf__max_features': 5000, 'tfidf__strip_accents': 'unicode'}              0.988341              0.991928              0.986535              0.986535              0.986535            0.987975           0.002097                   1        0.956522        0.969492        0.947368        0.947735        0.949153      0.954054     0.008403             1
+
+
+
+
+Coefficients : 
+
+[[2.05060466 4.78251414 6.29027211]]
 
