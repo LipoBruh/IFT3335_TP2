@@ -162,9 +162,11 @@ Première conséquence : L'entraînement des modèles est fortement accéléré 
 
 Ensuite, les métriques sont assez similaires avec un `max_features` limité à 500 mots au lieu de 5000. Le modèle MLP avec TF-IDF semble celui le plus pénalisé, car il perd un peu de la richesse associée au TF-IDF qui valorise certains mots plus rares.
 
+### Q2.1
+La méthode avec embedings a en générale une précision plus basse sur les modèles, contrairement aux méthodes de BoW et TF-IDF, qui présentent une précision plus élevée soit d’environ 97%. De plus, le modèle obtient un meilleur score avec BoW et TD-IDF, surtout pour le MLP, tandis que pour les embeddings, c’est plutôt pour le modèle de Random Forest que c’est le plus performant. De manière générale, la performance des embeddings restent inférieure à celle des deux autres méthodes. Les embeddings résument le texte dans un espace de taille fixe, ce qui fait en sorte que c’est possible de perdre le sens du texte ou des détails importants, surtout en classification binaire. Ce qui peut suggérer pourquoi les représentations basées sur les fréquences de mots comme BoW et TD-IDF bénéficient d’un meilleur vocabulaire et offre une meilleure performance, car ces dernières conservent une meilleure représentation des mots et capture mieux le texte. Donc, les méthodes BoW et TF-IDF surpassent la méthode d’embeddings en termes de précision. Dans ce contexte, les embeddings ont l’air d’être moins adaptés.
 
-
-
+### Q2.2
+Les avantages du embeddings, c’est qu’on n’a pas besoin de beaucoup de données, ils peuvent quand même avoir un bon résultat avec un jeu de données limité. Les vecteurs sont aussi plus compacts ce qui peut améliorer l’efficacité du traitement. Cependant, ils peuvent perdre des bouts d’informations importantes à la classification, lorsque les informations sont compressées. Les embeddings sont aussi plus lents à utiliser surtout avec un codage dynamique tel qu’avec Sentence Transformers.
 
 ### Q3.1
 > Commenter les graphiques obtenus
